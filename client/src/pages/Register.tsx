@@ -1,8 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import SubmitButton from "@/components/SubmitButton";
 import { Link, Form } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import FormRow from "@/components/FormRow";
 import Logo from "@/components/Logo";
+
+export const registerAction = async ({ request }: any) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+};
 
 const Register = () => {
   return (

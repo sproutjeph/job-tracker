@@ -8,7 +8,7 @@ interface LandingProps {}
 
 const Landing: FC<LandingProps> = () => {
   return (
-    <div className="max-w-6xl container  h-screen overflow-hidden">
+    <div className="max-w-6xl container  h-screen overflow-hidden ">
       <nav className="my-6">
         <Logo />
       </nav>

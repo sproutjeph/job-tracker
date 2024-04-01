@@ -8,6 +8,8 @@ import {
   Login,
   Register,
 } from "./pages";
+import { registerAction } from "./pages/Register";
+import { loginAction } from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +18,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { element: <Landing />, index: true },
-      { path: "register", element: <Register /> },
-      { path: "login", element: <Login /> },
+      { path: "register", element: <Register />, action: registerAction },
+      { path: "login", element: <Login />, action: loginAction },
       { path: "dashboard", element: <DashboardLayout /> },
     ],
   },
