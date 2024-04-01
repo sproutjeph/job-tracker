@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import { FC } from "react";
 
-interface RegisterProps {}
-
-const Register: FC<RegisterProps> = () => {
+const Register = () => {
   return (
     <div>
       <h1>Register Page</h1>
