@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { Outlet } from "react-router-dom";
 
-interface DashboardLayoutProps {}
-
-const DashboardLayout: FC<DashboardLayoutProps> = () => {
-  return <div>DashboardLayout</div>;
+const DashboardLayout = () => {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 };
 
 export default DashboardLayout;

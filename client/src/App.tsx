@@ -7,6 +7,11 @@ import {
   Landing,
   Login,
   Register,
+  AddJob,
+  Stats,
+  Admin,
+  Profile,
+  AllJobs,
 } from "./pages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
@@ -20,7 +25,17 @@ const router = createBrowserRouter([
       { element: <Landing />, index: true },
       { path: "register", element: <Register />, action: registerAction },
       { path: "login", element: <Login />, action: loginAction },
-      { path: "dashboard", element: <DashboardLayout /> },
+      {
+        path: "dashboard",
+        element: <DashboardLayout />,
+        children: [
+          { index: true, element: <AddJob /> },
+          { path: "stats", element: <Stats /> },
+          { path: "admin", element: <Admin /> },
+          { path: "profile", element: <Profile /> },
+          { path: "all-jobs", element: <AllJobs /> },
+        ],
+      },
     ],
   },
 ]);
