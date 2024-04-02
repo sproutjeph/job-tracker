@@ -6,14 +6,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { BarChart, BookPlusIcon, List, Menu, User } from "lucide-react";
+import { Menu } from "lucide-react";
 import Logo from "./Logo";
 import CustomNavLink from "./CustomNavLink";
+import { linkData } from "@/lib/utils";
 
 function MobileSidebar() {
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger asChild className=" lg:hidden">
         <Menu size={30} className="text-primary cursor-pointer" />
       </SheetTrigger>
       <SheetContent side="left" className="flex flex-col  items-center">
@@ -24,18 +25,11 @@ function MobileSidebar() {
         </SheetHeader>
 
         <div className="mt-6 space-y-4">
-          <SheetClose asChild>
-            <CustomNavLink Icon={BookPlusIcon} text="Add Job" href="/add-job" />
-          </SheetClose>
-          <SheetClose asChild>
-            <CustomNavLink Icon={List} text="All Jobs" href="/all-jobs" />
-          </SheetClose>
-          <SheetClose asChild>
-            <CustomNavLink Icon={BarChart} text="Stats" href="/stats" />
-          </SheetClose>
-          <SheetClose asChild>
-            <CustomNavLink Icon={User} text="Profile" href="/profile" />
-          </SheetClose>
+          {linkData.map(({ Icon, path, text }) => (
+            <SheetClose asChild key={text}>
+              <CustomNavLink Icon={Icon} text={text} href={path} />
+            </SheetClose>
+          ))}
         </div>
       </SheetContent>
     </Sheet>
