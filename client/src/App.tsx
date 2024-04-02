@@ -15,6 +15,7 @@ import {
 } from "./pages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
+import { addJobAction } from "./pages/AddJob";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <DashboardLayout />,
         children: [
-          { index: true, element: <AddJob /> },
+          { index: true, element: <AddJob />, action: addJobAction },
           { path: "stats", element: <Stats /> },
           { path: "admin", element: <Admin /> },
           { path: "profile", element: <Profile /> },

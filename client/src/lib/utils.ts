@@ -1,6 +1,25 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
+
+export const JOB_STATUS = {
+  PENDING: "pending",
+  INTERVIEW: "interview",
+  DECLINED: "declined",
+};
+
+export const JOB_TYPE = {
+  FULL_TIME: "full-time",
+  PART_TIME: "part-time",
+  INTERNSHIP: "internship",
+};
+
+export const JOB_SORT_BY = {
+  NEWEST_FIRST: "newest",
+  OLDEST_FIRST: "oldest",
+  ASCENDING: "a-z",
+  DESCENDING: "z-a",
+};
