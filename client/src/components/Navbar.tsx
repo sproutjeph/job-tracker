@@ -5,8 +5,8 @@ import MobileSidebar from "./MobileSidebar";
 
 const Navbar = () => {
   return (
-    <nav className="   border-b-2 ">
-      <div className="mx-4 sm:mx-6 flex justify-between  items-center my-4">
+    <nav className="sticky border-b-2 top-0 z-50 h-24 grid">
+      <div className="mx-4 sm:mx-6 flex justify-between items-center">
         <MobileSidebar />
         <div className="lg:hidden">
           <Logo navLogo />

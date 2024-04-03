@@ -35,7 +35,7 @@ const UserPopover: FC<UserPopoverProps> = ({ userName, avatar, email }) => {
           </div>
         </div>
         <Link
-          to="/profile"
+          to="profile"
           className="flex gap-4 items-center  text-sm hover:bg-muted-foreground/20 p-2 rounded-md hover:text-primary-foreground"
         >
           <Settings size={18} />
