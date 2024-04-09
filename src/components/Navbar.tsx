@@ -5,7 +5,7 @@ import MobileSidebar from "./MobileSidebar";
 
 const Navbar = () => {
   return (
-    <nav className="sticky border-b-2 top-0 z-50 h-24 grid">
+    <nav className="sticky border-b-2 top-0 z-50 h-24 grid bg-background">
       <div className="mx-4 sm:mx-6 flex justify-between items-center">
         <MobileSidebar />
         <div className="lg:hidden">

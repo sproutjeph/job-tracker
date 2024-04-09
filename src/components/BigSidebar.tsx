@@ -7,7 +7,7 @@ interface BigSidebarProps {}
 
 const BigSidebar: FC<BigSidebarProps> = () => {
   return (
-    <div className="h-screen w-[200px] hidden lg:block p-6 border-r-2">
+    <div className="h-screen w-[200px] hidden lg:block p-6 border-r-2 fixed">
       <div className="mt-2">
         <Logo navLogo />
       </div>

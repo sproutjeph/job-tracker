@@ -1,19 +1,12 @@
 export interface IJob {
-  id: string;
+  _id: string;
   company: string;
   position: string;
-  status: string;
-  jobtype: string;
-  location?: string;
-  date: Date;
+  jobStatus: string;
+  jobType: string;
+  jobLocation?: string;
+  createdAt: Date;
   joblink?: string;
+  updatedAt: Date;
+  createdBy: string;
 }
-
-export type IJobFields = {
-  company: string;
-  position: string;
-  status: string;
-  jobtype: string;
-  location: string;
-  joblink?: string;
-};

@@ -16,6 +16,7 @@ import {
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
 import { addJobAction } from "./pages/AddJob";
+import QueryProvider from "./providers/queryClient";
 
 const router = createBrowserRouter([
   {
@@ -43,9 +44,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <QueryProvider>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryProvider>
   );
 }
 

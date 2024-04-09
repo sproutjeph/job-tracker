@@ -3,13 +3,14 @@ import FormSelectRow from "@/components/FormSelectRow";
 import JobCard from "@/components/JobCard";
 import SubmitButton from "@/components/SubmitButton";
 import { Card } from "@/components/ui/card";
+import useGetAllJobs from "@/hooks/useGetAllJobs";
+import { IJob } from "@/lib/types";
 import { JOB_SORT_BY, JOB_STATUS, JOB_TYPE } from "@/lib/utils";
-import { FC } from "react";
 import { Form } from "react-router-dom";
 
-interface AllJobsProps {}
-
-const AllJobs: FC<AllJobsProps> = () => {
+const AllJobs = () => {
+  const { data } = useGetAllJobs();
+  console.log(data?.jobs);
   return (
     <div className="">
       <Card className="p-4 mt-4 sm:p-6 md:p-8">
@@ -41,42 +42,23 @@ const AllJobs: FC<AllJobsProps> = () => {
       <h1 className="mt-8 text-xl">All Jobs</h1>
 
       <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3">
-        <JobCard
-          job={{
-            company: "Google",
-            position: "Software Engineer",
-            location: "Mountain View, CA",
-            date: new Date("2021-05-01"),
-            jobtype: "Full Time",
-            status: "Pending",
-            joblink: "https://www.google.com",
-            id: "1",
-          }}
-        />
-        <JobCard
-          job={{
-            company: "Google",
-            position: "Software Engineer",
-            location: "Mountain View, CA",
-            date: new Date("2021-05-01"),
-            jobtype: "Full Time",
-            status: "Pending",
-            joblink: "https://www.google.com",
-            id: "1",
-          }}
-        />
-        <JobCard
-          job={{
-            company: "Google",
-            position: "Software Engineer",
-            location: "Mountain View, CA",
-            date: new Date("2021-05-01"),
-            jobtype: "Full Time",
-            status: "Pending",
-            joblink: "https://www.google.com",
-            id: "1",
-          }}
-        />
+        {data?.jobs?.map((job: IJob) => (
+          <JobCard
+            key={job._id}
+            job={{
+              company: job.company,
+              position: job.position,
+              jobLocation: job.jobLocation,
+              createdAt: new Date(job.createdAt),
+              jobType: job.jobType,
+              jobStatus: job.jobStatus,
+              joblink: "https://www.google.com",
+              _id: job._id,
+              updatedAt: new Date(job.updatedAt),
+              createdBy: job.createdBy,
+            }}
+          />
+        ))}
       </ul>
     </div>
   );
