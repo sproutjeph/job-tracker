@@ -13,7 +13,7 @@ interface JobCardProps {
 const JobCard: FC<JobCardProps> = ({ job }) => {
   return (
     <Card className="">
-      <CardHeader className="flex-row items-center gap-4 p-3">
+      <CardHeader className="flex-row items-center gap-4 px-3 py-5">
         <div className="flex items-center justify-center w-10 h-10 text-2xl font-extrabold text-white rounded-md bg-primary">
           {job.company.charAt(0)}
         </div>
@@ -23,7 +23,7 @@ const JobCard: FC<JobCardProps> = ({ job }) => {
         </div>
       </CardHeader>
       <Separator className="mb-3" />
-      <CardContent className="grid grid-cols-2 gap-3 pb-3">
+      <CardContent className="grid grid-cols-2 gap-3 pb-3 py-3">
         <div className="flex items-center gap-2">
           <Send size={16} />
           <h4 className="text-sm">{job.location}</h4>
@@ -37,16 +37,19 @@ const JobCard: FC<JobCardProps> = ({ job }) => {
           <h4 className="text-sm">{job.jobtype}</h4>
         </div>
 
-        <div className="flex items-center justify-center w-24 text-sm text-white bg-black rounded-md dark:bg-white dark:text-black">
+        <div className="flex items-center justify-center w-24 text-sm rounded-md bg-accent text-accent-foreground">
           {job.status}
         </div>
       </CardContent>
       <Separator className="mb-3" />
-      <CardFooter className="flex gap-2 pb-3 ">
-        <Button size="sm" className="bg-green-800">
+      <CardFooter className="flex gap-4 p-3 ">
+        <Button size="sm" className="bg-green-800 hover:bg-green-900">
           Edit
         </Button>
-        <Button size="sm" variant="destructive">
+        <Button
+          size="sm"
+          className="bg-destructive/10 text-black dark:text-red-900 hover:bg-inherit"
+        >
           Delete
         </Button>
         <a href={job.joblink} target="_blank">

@@ -40,7 +40,7 @@ const AllJobs: FC<AllJobsProps> = () => {
       </Card>
       <h1 className="mt-8 text-xl">All Jobs</h1>
 
-      <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3">
         <JobCard
           job={{
             company: "Google",
