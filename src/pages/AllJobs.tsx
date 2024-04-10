@@ -1,6 +1,7 @@
 import FormRow from "@/components/FormRow";
 import FormSelectRow from "@/components/FormSelectRow";
 import JobCard from "@/components/JobCard";
+import JobCardSkeleton from "@/components/JobCardSkeleton";
 import SubmitButton from "@/components/SubmitButton";
 import { Card } from "@/components/ui/card";
 import useGetAllJobs from "@/hooks/useGetAllJobs";
@@ -9,7 +10,7 @@ import { JOB_SORT_BY, JOB_STATUS, JOB_TYPE } from "@/lib/utils";
 import { Form } from "react-router-dom";
 
 const AllJobs = () => {
-  const { data } = useGetAllJobs();
+  const { data, isLoading } = useGetAllJobs();
   console.log(data?.jobs);
   return (
     <div className="">
@@ -42,23 +43,32 @@ const AllJobs = () => {
       <h1 className="mt-8 text-xl">All Jobs</h1>
 
       <ul className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3">
-        {data?.jobs?.map((job: IJob) => (
-          <JobCard
-            key={job._id}
-            job={{
-              company: job.company,
-              position: job.position,
-              jobLocation: job.jobLocation,
-              createdAt: new Date(job.createdAt),
-              jobType: job.jobType,
-              jobStatus: job.jobStatus,
-              joblink: "https://www.google.com",
-              _id: job._id,
-              updatedAt: new Date(job.updatedAt),
-              createdBy: job.createdBy,
-            }}
-          />
-        ))}
+        {isLoading ? (
+          <>
+            <JobCardSkeleton />
+            <JobCardSkeleton />
+            <JobCardSkeleton />
+            <JobCardSkeleton />
+          </>
+        ) : (
+          data?.jobs?.map((job: IJob) => (
+            <JobCard
+              key={job._id}
+              job={{
+                company: job.company,
+                position: job.position,
+                jobLocation: job.jobLocation,
+                createdAt: new Date(job.createdAt),
+                jobType: job.jobType,
+                jobStatus: job.jobStatus,
+                joblink: "https://www.google.com",
+                _id: job._id,
+                updatedAt: new Date(job.updatedAt),
+                createdBy: job.createdBy,
+              }}
+            />
+          ))
+        )}
       </ul>
     </div>
   );

@@ -27,7 +27,9 @@ const Landing: FC<LandingProps> = () => {
             <Link to="/register">
               <Button>Register</Button>
             </Link>
-            <Button>Login / Demo User</Button>
+            <Link to="/dashboard">
+              <Button>Login / Demo User</Button>
+            </Link>
           </div>
         </div>
         <img

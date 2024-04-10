@@ -16,7 +16,8 @@ import {
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
 import { addJobAction } from "./pages/AddJob";
-import QueryProvider from "./providers/queryClient";
+import QueryProvider, { queryClient } from "./providers/queryClient";
+import { Toaster } from "@/components/ui/sonner";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <DashboardLayout />,
         children: [
-          { index: true, element: <AddJob />, action: addJobAction },
+          {
+            index: true,
+            element: <AddJob />,
+            action: addJobAction(queryClient),
+          },
           { path: "stats", element: <Stats /> },
           { path: "admin", element: <Admin /> },
           { path: "profile", element: <Profile /> },
@@ -47,6 +52,7 @@ function App() {
     <QueryProvider>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <RouterProvider router={router} />
+        <Toaster />
       </ThemeProvider>
     </QueryProvider>
   );
