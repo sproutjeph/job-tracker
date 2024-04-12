@@ -2,7 +2,7 @@ import FormRow from "@/components/FormRow";
 import FormSelectRow from "@/components/FormSelectRow";
 import JobCard from "@/components/JobCard";
 import JobCardSkeleton from "@/components/JobCardSkeleton";
-import SubmitButton from "@/components/SubmitButton";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import useGetAllJobs from "@/hooks/useGetAllJobs";
 import { IJob } from "@/lib/types";
@@ -36,7 +36,7 @@ const AllJobs = () => {
             defaultValue="All"
           />
           <div className="col-span-2 md:col-span-1 md:col-start-4">
-            <SubmitButton />
+            <Button type="reset">Reset search values</Button>
           </div>
         </Form>
       </Card>

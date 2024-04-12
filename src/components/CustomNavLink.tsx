@@ -1,15 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { LucideIcon } from "lucide-react";
-import { FC } from "react";
 import { cn } from "@/lib/utils";
+import { FC } from "react";
 
 interface NavLinkProps {
   Icon: LucideIcon;
   text: string;
   href: string;
+  setSheetOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CustomNavLink: FC<NavLinkProps> = ({ Icon, text, href }) => {
+const CustomNavLink: FC<NavLinkProps> = ({
+  Icon,
+  text,
+  href,
+  setSheetOpen,
+}) => {
   return (
     <NavLink
       to={href}
@@ -18,6 +24,7 @@ const CustomNavLink: FC<NavLinkProps> = ({ Icon, text, href }) => {
         ({ isActive }: { isActive: boolean }) => isActive && "text-primary"
       )}
       end
+      onClick={() => setSheetOpen(false)}
     >
       <Icon />
       <p className="capitalize">{text}</p>
