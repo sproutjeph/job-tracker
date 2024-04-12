@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { IJob } from "@/lib/types";
 import { formatDateToYYYYMMDD } from "@/lib/utils";
+import { Form, Link } from "react-router-dom";
 
 interface JobCardProps {
   job: IJob;
@@ -43,15 +44,20 @@ const JobCard: FC<JobCardProps> = ({ job }) => {
       </CardContent>
       <Separator className="mb-3" />
       <CardFooter className="flex gap-4 p-3 ">
-        <Button size="sm" className="bg-green-800 hover:bg-green-900">
-          Edit
-        </Button>
-        <Button
-          size="sm"
-          className="bg-destructive/10 text-black dark:text-red-900 hover:bg-inherit"
-        >
-          Delete
-        </Button>
+        <Link to={`../edit-job/${job._id}`}>
+          <Button size="sm" className="bg-green-800 hover:bg-green-900">
+            Edit
+          </Button>
+        </Link>
+        <Form method="post" action={`../delete-job/${job._id}`}>
+          <Button
+            type="submit"
+            size="sm"
+            className="bg-destructive/10 text-black dark:text-red-900 hover:bg-inherit"
+          >
+            Delete
+          </Button>
+        </Form>
         <a href={job.joblink} target="_blank">
           <Button size="sm" variant="secondary" className="">
             Job Link

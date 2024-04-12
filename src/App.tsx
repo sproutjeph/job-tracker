@@ -12,12 +12,14 @@ import {
   Admin,
   Profile,
   AllJobs,
+  EditJob,
 } from "./pages";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
 import { addJobAction } from "./pages/AddJob";
 import QueryProvider, { queryClient } from "./providers/queryClient";
 import { Toaster } from "@/components/ui/sonner";
+import { deleteJobAction } from "./pages/DeleteJob";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,8 @@ const router = createBrowserRouter([
           { path: "admin", element: <Admin /> },
           { path: "profile", element: <Profile /> },
           { path: "all-jobs", element: <AllJobs /> },
+          { path: "edit-job/:id", element: <EditJob /> },
+          { path: "delete-job/:id", action: deleteJobAction(queryClient) },
         ],
       },
     ],
