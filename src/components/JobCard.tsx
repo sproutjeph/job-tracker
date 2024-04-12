@@ -12,7 +12,7 @@ interface JobCardProps {
 
 const JobCard: FC<JobCardProps> = ({ job }) => {
   return (
-    <Card className="">
+    <Card className="bg-accent/20">
       <CardHeader className="flex-row items-center gap-4 px-3 py-5">
         <div className="flex items-center justify-center w-10 h-10 text-2xl font-extrabold text-white rounded-md bg-primary">
           {job.company.charAt(0)}
@@ -26,19 +26,19 @@ const JobCard: FC<JobCardProps> = ({ job }) => {
       <CardContent className="grid grid-cols-2 gap-3 pb-3 py-3">
         <div className="flex items-center gap-2">
           <Send size={16} />
-          <h4 className="text-sm">{job.location}</h4>
+          <h4 className="text-sm">{job.jobLocation}</h4>
         </div>
         <div className="flex items-center gap-2">
           <Calendar size={16} />
-          <h4 className="text-sm">{formatDateToYYYYMMDD(job?.date)}</h4>
+          <h4 className="text-sm">{formatDateToYYYYMMDD(job?.createdAt)}</h4>
         </div>
         <div className="flex items-center gap-2">
           <Briefcase size={16} />
-          <h4 className="text-sm">{job.jobtype}</h4>
+          <h4 className="text-sm">{job.jobType}</h4>
         </div>
 
         <div className="flex items-center justify-center w-24 text-sm rounded-md bg-accent text-accent-foreground">
-          {job.status}
+          {job.jobStatus}
         </div>
       </CardContent>
       <Separator className="mb-3" />
